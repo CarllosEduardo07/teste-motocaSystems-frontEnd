@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route element={<Home />} path='/' />
           <Route element={<RegistraMoto />} path='/registar-motos' />
-          <Route element={<Editar />} path='/editar-dados' />
+          <Route element={<Editar />} path='/editar-dados:codigo' />
         </Routes>
       </BrowserRouter>
     </div>

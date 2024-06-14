@@ -1,16 +1,32 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../index.css';
 import AplayInput from '../input/aplayInput/aplayInput';
 import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
+import { addMoto } from '../mock/motoService';
 
 export default function RegistraMoto() {
-  
-  
-  const [codigo, setCodigo] = useState(dataEdit.name || '');
-  const [modeloMoto, setModeloMoto] = useState(dataEdit.name || '');
-  const [cor, setCor] = useState(dataEdit.name || '');
-  const [valor, setValor] = useState(dataEdit.name || '');
-  const [status, setStatus] = useState(dataEdit.name || '');
+  const [codigo, setCodigo] = useState('');
+  const [modeloMoto, setModeloMoto] = useState('');
+  const [cor, setCor] = useState('');
+  const [valor, setValor] = useState('');
+  const [status, setStatus] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newMoto = {
+      codigo: 0,
+      modeloMoto,
+      cor,
+      valor: parseFloat(valor),
+      status,
+    };
+    addMoto(newMoto)
+    navigate('/')
+  };
 
   return (
     <div className='pb-5'>
@@ -25,9 +41,7 @@ export default function RegistraMoto() {
 
         <form
           action=''
-          onSubmit={e => {
-            e.preventDefault();
-          }}
+          onSubmit={handleSubmit}
           className='mt-10 space-y-8'
         >
           <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={setCodigo} />
