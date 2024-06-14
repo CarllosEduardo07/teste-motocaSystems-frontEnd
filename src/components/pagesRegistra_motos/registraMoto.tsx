@@ -4,11 +4,13 @@ import AplayInput from '../input/aplayInput/aplayInput';
 import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
 
 export default function RegistraMoto() {
-  const [codigo, setCodigo] = useState('');
-  const [modeloMoto, setModeloMoto] = useState('');
-  const [cor, setCor] = useState('');
-  const [valor, setValor] = useState('');
-  const [status, setStatus] = useState('');
+  
+  
+  const [codigo, setCodigo] = useState(dataEdit.name || '');
+  const [modeloMoto, setModeloMoto] = useState(dataEdit.name || '');
+  const [cor, setCor] = useState(dataEdit.name || '');
+  const [valor, setValor] = useState(dataEdit.name || '');
+  const [status, setStatus] = useState(dataEdit.name || '');
 
   return (
     <div className='pb-5'>
