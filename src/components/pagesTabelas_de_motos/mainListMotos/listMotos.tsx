@@ -37,6 +37,7 @@ export default function ListMotos() {
               <p className='text-base font-medium'>Cor: {moto.cor}</p>
             </div>
             <div className='flex items-center space-x-5 mr-10'>
+              
               <button onClick={() => handleDelete(moto.codigo)}>
                 <img src='../../../../public/assets/apagar.svg' alt='apagar' />
               </button>

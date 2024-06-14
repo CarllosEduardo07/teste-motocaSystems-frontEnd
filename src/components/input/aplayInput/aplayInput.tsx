@@ -18,7 +18,6 @@ export default function AplayInput({ name, label, type, value, onClick, setValue
         onClick={onClick}
         onChange={e => {
           setValue(e.target.value);
-          console.log(e.target.value);
         }}
         value={value}
         className={`w-[400px] ${name === 'codigo' ? 'pl-6' : 'pl-3'} ${

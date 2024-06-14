@@ -11,7 +11,6 @@ let motos: Moto[] = [];
 export const getMotos = (): Moto[] => motos;
 
 export const addMoto = (moto: Moto): void => {
-  moto.codigo = Date.now();
   motos.push(moto);
 };
 

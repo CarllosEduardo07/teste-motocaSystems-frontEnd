@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../index.css';
 import AplayInput from '../input/aplayInput/aplayInput';
-import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
 import { addMoto } from '../mock/motoService';
+import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
 
 export default function RegistraMoto() {
   const [codigo, setCodigo] = useState('');
@@ -18,14 +18,15 @@ export default function RegistraMoto() {
     e.preventDefault();
 
     const newMoto = {
-      codigo: 0,
+      codigo: parseInt(codigo),
       modeloMoto,
       cor,
       valor: parseFloat(valor),
       status,
     };
-    addMoto(newMoto)
-    navigate('/')
+    console.log(codigo);
+    addMoto(newMoto);
+    navigate('/');
   };
 
   return (
@@ -36,15 +37,11 @@ export default function RegistraMoto() {
       </section>
       <hr className='my-[30px] bg-[#CAC9CD]' />
 
-      <section className=' mt-10 flex flex-col justify-center items-center'>
-        <h1 className='text-2xl font-semibold text-[#E7E3FC]'>Preencha as informações a baixo para registrar uma Moto 🏍️</h1>
+      <section className='mt-10 flex flex-col justify-center items-center'>
+        <h1 className='text-2xl font-semibold text-[#E7E3FC]'>Preencha as informações abaixo para registrar uma Moto 🏍️</h1>
 
-        <form
-          action=''
-          onSubmit={handleSubmit}
-          className='mt-10 space-y-8'
-        >
-          <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={setCodigo} />
+        <form onSubmit={handleSubmit} className='mt-10 space-y-8'>
+          <AplayInput name='codigo' label='Código' type='number' value={codigo} setValue={setCodigo} />
           <AplayInput name='modelo da Moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
           <AplayInput name='cor' label='Cor' type='text' value={cor} setValue={setCor} />
           <AplayInput name='valor' label='Valor' type='number' value={valor} setValue={setValor} />
@@ -55,10 +52,8 @@ export default function RegistraMoto() {
             <select
               id='status'
               value={status}
-              onChange={e => {
-                setStatus(e.target.value);
-              }}
-              className='w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base  bg-background-pages outline-none rounded-md'
+              onChange={e => setStatus(e.target.value)}
+              className='w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >
               <option value=''></option>
               <option value='Em estoque'>Em estoque</option>
