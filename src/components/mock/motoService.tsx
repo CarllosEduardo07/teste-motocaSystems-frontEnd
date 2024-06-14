@@ -21,3 +21,7 @@ export const deleteMoto = (codigo: number): void => {
 export const updateMoto = (updateMoto: Moto): void => {
   motos = motos.map(moto => (moto.codigo === updateMoto.codigo ? updateMoto : moto));
 };
+
+export const getMotoByCodigo = (codigo: number): Moto | undefined => {
+  return motos.find(moto => moto.codigo === codigo);
+};
