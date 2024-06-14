@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainPagesHeader from '../../components/header/mainHeader';
-import AplayInput from '../../components/input/aplayInput/aplayInput';
+import AplayInput from '../../components/input/aplayInput';
 import { addMoto } from '../../mock/motoService';
 
 export default function RegistraMoto() {

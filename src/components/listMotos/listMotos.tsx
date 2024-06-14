@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteMoto, getMotos } from '../../mock/motoService';
-import Modal from '../input/modal/modal';
+import Modal from '../modal/modal';
 
 export default function ListMotos() {
   const [motos, setMotos] = useState(getMotos());
