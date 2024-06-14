@@ -20,6 +20,7 @@ export default function AplayInput({ name, label, type, value, onClick, setValue
           setValue(e.target.value);
         }}
         value={value}
+        required
         className={`w-[400px] ${name === 'codigo' ? 'pl-6' : 'pl-3'} ${
           type === 'number' ? 'input_number' : ''
         } h-[50px] text-[#CAC9CD] border border-[#CAC9CD] text-base bg-transparent outline-none rounded-md`}

@@ -52,6 +52,7 @@ export default function RegistraMoto() {
               id='status'
               value={status}
               onChange={e => setStatus(e.target.value)}
+              required
               className='w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >
               <option value=''></option>
