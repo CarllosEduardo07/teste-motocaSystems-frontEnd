@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteMoto, getMotos } from '../../mock/motoService';
+import Modal from '../input/modal/modal';
 
 export default function ListMotos() {
   const [motos, setMotos] = useState(getMotos());
   const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const handleDelete = async (codigo: number) => {
     setLoading(true);
@@ -13,6 +15,7 @@ export default function ListMotos() {
       try {
         await deleteMoto(codigo);
         setMotos(getMotos());
+        setModal(true);
       } catch (error) {
         console.error('Erro ao excluir a moto:', error);
       } finally {
@@ -62,6 +65,8 @@ export default function ListMotos() {
           </div>
         </div>
       ))}
+
+      {modal && <Modal mensagem='Item Excluido com Sucesso' onClose={() => setModal(false)} />}
     </section>
   );
 }
