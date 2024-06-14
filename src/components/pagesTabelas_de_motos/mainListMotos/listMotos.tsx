@@ -4,10 +4,22 @@ import { deleteMoto, getMotos } from '../../mock/motoService';
 
 export default function ListMotos() {
   const [motos, setMotos] = useState(getMotos());
+  const [loading, setLoading] = useState(false);
 
-  const handleDelete = (codigo: number) => {
-    deleteMoto(codigo);
-    setMotos(getMotos());
+  const handleDelete = async (codigo: number) => {
+    setLoading(true);
+
+    setTimeout(async () => {
+      try {
+        await deleteMoto(codigo);
+        setMotos(getMotos());
+      } catch (error) {
+        console.error('Erro ao excluir a moto:', error);
+      } finally {
+        setLoading(false);
+      }
+    }, 1500);
+   
   };
 
   useEffect(() => {
@@ -37,10 +49,17 @@ export default function ListMotos() {
               <p className='text-base font-medium'>Cor: {moto.cor}</p>
             </div>
             <div className='flex items-center space-x-5 mr-10'>
-              
-              <button onClick={() => handleDelete(moto.codigo)}>
-                <img src='../../../../public/assets/apagar.svg' alt='apagar' />
+              <button
+                onClick={() => handleDelete(moto.codigo)}
+                disabled={loading} // Desativa o botão durante o loading
+              >
+                {loading ? (
+                 <img src='../../../../public/assets/loading.svg' alt='loading' />
+                ) : (
+                  <img src='../../../../public/assets/apagar.svg' alt='apagar' />
+                )}
               </button>
+
               <Link to={`/editar-dados/${moto.codigo}`}>
                 <img src='../../../../public/assets/editar.svg' alt='editar' />
               </Link>
