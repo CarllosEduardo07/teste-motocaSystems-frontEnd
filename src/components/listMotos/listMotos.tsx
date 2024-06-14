@@ -46,7 +46,7 @@ export default function ListMotos() {
     <section className='space-y-6 w-full'>
       {motos.map((moto, index) => (
         <div key={moto.codigo} className='h-[138px] bg-[#312D4B] flex items-center rounded-xl'>
-          <div className='w-[240px] h-full flex items-center justify-center'>
+          <div className='w-[110px] md:w-[240px] h-full flex items-center justify-center'>
             <p className='text-lg text-[#8C57FF] font-medium leading-6'>#{moto.codigo}</p>
           </div>
           <div className='flex w-full justify-between'>
@@ -64,16 +64,16 @@ export default function ListMotos() {
               <p className='text-base font-medium'>Valor: R$ {moto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
               <p className='text-base font-medium'>Cor: {moto.cor}</p>
             </div>
-            <div className='flex items-center space-x-5 mr-10'>
+            <div className='flex items-center space-x-5 mr-4 md:mr-10'>
               <button
                 onClick={() => handleDelete(moto.codigo, index)}
                 disabled={loadingList[index]} // Desativa o botão durante o loading da moto específica
               >
-                {loadingList[index] ? <img src='../../../../public/assets/loading.svg' alt='loading' /> : <img src='../../../../public/assets/apagar.svg' alt='apagar' />}
+                {loadingList[index] ? <img src='/assets/loading.svg' alt='loading' /> : <img src='/assets/apagar.svg' alt='apagar' />}
               </button>
 
               <Link to={`/editar-dados/${moto.codigo}`}>
-                <img src='../../../../public/assets/editar.svg' alt='editar' />
+                <img src='/assets/editar.svg' alt='editar' />
               </Link>
             </div>
           </div>

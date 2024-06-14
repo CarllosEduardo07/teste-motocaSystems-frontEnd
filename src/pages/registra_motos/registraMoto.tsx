@@ -29,7 +29,7 @@ export default function RegistraMoto() {
   };
 
   return (
-    <div className='pb-5'>
+    <div className=' pb-20 md:pb-5'>
       <MainPagesHeader />
       <section className='mt-8'>
         <h1 className='text-2xl font-semibold'>Registro de Motos</h1>
@@ -37,9 +37,9 @@ export default function RegistraMoto() {
       <hr className='my-[30px] bg-[#CAC9CD]' />
 
       <section className='mt-10 flex flex-col justify-center items-center'>
-        <h1 className='text-2xl font-semibold text-[#E7E3FC]'>Preencha as informações abaixo para registrar uma Moto 🏍️</h1>
+        <h1 className='text-center text-xl md:text-2xl font-semibold text-[#E7E3FC]'>Preencha as informações abaixo para registrar uma Moto 🏍️</h1>
 
-        <form onSubmit={handleSubmit} className='mt-10 space-y-8'>
+        <form onSubmit={handleSubmit} className='w-full md:w-auto mt-10 space-y-8'>
           <AplayInput name='codigo' label='Código' type='number' value={codigo} setValue={setCodigo} />
           <AplayInput name='modelo da Moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
           <AplayInput name='cor' label='Cor' type='text' value={cor} setValue={setCor} />
@@ -53,7 +53,7 @@ export default function RegistraMoto() {
               value={status}
               onChange={e => setStatus(e.target.value)}
               required
-              className='w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
+              className='w-[350px] md:w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >
               <option value=''></option>
               <option value='Em estoque'>Em estoque</option>
@@ -61,7 +61,7 @@ export default function RegistraMoto() {
               <option value='Em trânsito'>Em trânsito</option>
             </select>
           </div>
-          <button className='flex items-center justify-center text-center w-[400px] h-[45px] px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md'>
+          <button className=' w-[350px] md:w-[400px] h-[45px] flex items-center justify-center text-center px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md'>
             <img src='../../assets/add.svg' alt='' className='mx-1.5' />
             <p>REGISTRAR</p>
           </button>
