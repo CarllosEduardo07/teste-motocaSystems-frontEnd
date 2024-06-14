@@ -48,9 +48,9 @@ export default function Editar() {
       <hr className='my-[30px] bg-[#CAC9CD]' />
 
       <section className=' mt-10 flex flex-col justify-center items-center'>
-        <h1 className='text-2xl font-semibold text-[#E7E3FC]'>Edite as informações que preferir! 📝</h1>
+        <h1 className='text-center text-xl md:text-2xl font-semibold text-[#E7E3FC]'>Edite as informações que preferir! 📝</h1>
 
-        <div className='mt-10 space-y-8'>
+        <form onSubmit={handleSubmit} className='w-full md:w-auto mt-10 space-y-8'>
         <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={(value) => {}} disabled />
           <AplayInput name='modelo_da_moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
           <AplayInput name='cor' label='Cor' type='text' value={cor} setValue={setCor} />
@@ -67,18 +67,18 @@ export default function Editar() {
                 setStatus(e.target.value);
               }}
               required
-              className='w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base  bg-background-pages outline-none rounded-md'
+              className='w-[350px] md:w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >
               <option value='Em estoque'>Em estoque</option>
               <option value='Sem estoque'>Sem estoque</option>
               <option value='Em trânsito'>Em trânsito</option>
             </select>
           </div>
-          <button className='flex items-center justify-center text-center w-[400px] h-[45px] px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md' onClick={handleSubmit}>
+          <button className=' w-[350px] md:w-[400px] h-[45px] flex items-center justify-center text-center px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md'>
             <img src='../../assets/atualizar.svg' alt='' className='mx-1.5' />
             <p>ATUALIZAR</p>
           </button>
-        </div>
+        </form>
       </section>
     </div>
   );
