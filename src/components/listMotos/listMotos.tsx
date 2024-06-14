@@ -19,7 +19,6 @@ export default function ListMotos() {
         setLoading(false);
       }
     }, 1500);
-   
   };
 
   useEffect(() => {
@@ -53,11 +52,7 @@ export default function ListMotos() {
                 onClick={() => handleDelete(moto.codigo)}
                 disabled={loading} // Desativa o botão durante o loading
               >
-                {loading ? (
-                 <img src='../../../../public/assets/loading.svg' alt='loading' />
-                ) : (
-                  <img src='../../../../public/assets/apagar.svg' alt='apagar' />
-                )}
+                {loading ? <img src='../../../../public/assets/loading.svg' alt='loading' /> : <img src='../../../../public/assets/apagar.svg' alt='apagar' />}
               </button>
 
               <Link to={`/editar-dados/${moto.codigo}`}>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/home/home';
-import Editar from './components/pagesEditar/editar';
-import RegistraMoto from './components/pagesRegistra_motos/registraMoto';
+import Editar from './pages/editar/editar';
+import Home from './pages/home/home';
+import RegistraMoto from './pages/registra_motos/registraMoto';
 
 function App() {
   return (

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../index.css';
-import AplayInput from '../input/aplayInput/aplayInput';
-import { addMoto } from '../mock/motoService';
-import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
+import MainPagesHeader from '../../components/header/mainHeader';
+import AplayInput from '../../components/input/aplayInput/aplayInput';
+import { addMoto } from '../../mock/motoService';
 
 export default function RegistraMoto() {
   const [codigo, setCodigo] = useState('');

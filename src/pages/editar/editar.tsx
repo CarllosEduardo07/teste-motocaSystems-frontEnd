@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'; // Importe o hook useNavigate e useParams
-import AplayInput from '../input/aplayInput/aplayInput';
-import { getMotoByCodigo, updateMoto } from '../mock/motoService'; // Importe as funções necessárias do mock
-import MainPagesHeader from '../pagesTabelas_de_motos/mainPagesHeader/mainPagesHeader';
+import MainPagesHeader from '../../components/header/mainHeader';
+import AplayInput from '../../components/input/aplayInput/aplayInput';
+import { getMotoByCodigo, updateMoto } from '../../mock/motoService'; // Importe as funções necessárias do mock
 
 export default function Editar() {
   const { codigo } = useParams(); // Receba o parâmetro 'codigo' da URL
