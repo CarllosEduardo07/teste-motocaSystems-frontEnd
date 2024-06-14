@@ -4,6 +4,8 @@ import MainPagesHeader from '../../components/header/mainHeader';
 import AplayInput from '../../components/input/aplayInput';
 import { addMoto } from '../../mock/motoService';
 
+let lastId = 0;
+
 export default function RegistraMoto() {
   const [codigo, setCodigo] = useState('');
   const [modeloMoto, setModeloMoto] = useState('');
@@ -13,21 +15,22 @@ export default function RegistraMoto() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    lastId ++
     const newMoto = {
+      id: lastId.toString(), 
       codigo: parseInt(codigo),
       modeloMoto,
       cor,
       valor: parseFloat(valor),
       status,
     };
-    console.log(codigo);
-    addMoto(newMoto);
+    await addMoto(newMoto);
     navigate('/');
   };
-
+  
   return (
     <div className=' pb-20 md:pb-5'>
       <MainPagesHeader />

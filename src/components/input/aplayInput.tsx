@@ -19,7 +19,7 @@ export default function AplayInput({ name, label, type, value, onClick, setValue
         type={type}
         onClick={onClick}
         onChange={e => {
-          setValue(e.target.value);
+          setValue(e.target.value.toUpperCase());
         }}
         value={value}
         required

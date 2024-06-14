@@ -1,4 +1,11 @@
-type Moto = {
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:3333',
+});
+
+export type Moto = {
+  id: string;
   codigo: number;
   modeloMoto: string;
   cor: string;
@@ -6,22 +13,29 @@ type Moto = {
   status: string;
 };
 
-let motos: Moto[] = [];
+// let motos: Moto[] = [];
 
-export const getMotos = (): Moto[] => motos;
-
-export const addMoto = (moto: Moto): void => {
-  motos.push(moto);
+//atualizar
+export const getMotos = async (): Promise<Moto[]> => {
+  const response = await api.get('/motos');
+  return response.data;
 };
 
-export const deleteMoto = (codigo: number): void => {
-  motos = motos.filter(moto => moto.codigo !== codigo);
+//buscando motos para editar
+export const getMotoByCodigo = async (id: number): Promise<Moto | undefined> => {
+  const response = await api.get(`/motos/${id}`);
+  return response.data;
 };
 
-export const updateMoto = (updateMoto: Moto): void => {
-  motos = motos.map(moto => (moto.codigo === updateMoto.codigo ? updateMoto : moto));
+//add
+export const addMoto = async (moto: Moto): Promise<void> => {
+  await api.post('/motos', moto);
 };
 
-export const getMotoByCodigo = (codigo: number): Moto | undefined => {
-  return motos.find(moto => moto.codigo === codigo);
+export const deleteMoto = async (id: string): Promise<void> => {
+  await api.delete(`/motos/${id}`);
+};
+
+export const updateMoto = async (updateMoto: Moto): Promise<void> => {
+  await api.put(`/motos/${updateMoto.id}`, updateMoto);
 };

@@ -1,15 +1,29 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { deleteMoto, getMotos } from '../../mock/motoService';
+import { Moto, deleteMoto, getMotos } from '../../mock/motoService';
 import Modal from '../modal/modal';
 
 export default function ListMotos() {
-  const [motos, setMotos] = useState(getMotos());
-  const [loadingList, setLoadingList] = useState(motos.map(() => false));
+  const [motos, setMotos] = useState<Moto[]>([]);
+  const [loadingList, setLoadingList] = useState<boolean[]>([]);
   const [modal, setModal] = useState(false);
 
-  const handleDelete = async (codigo: number, index: number) => {
-    //uma moto esta sendo processada
+  useEffect(() => {
+    const fetchMotos = async () => {
+      try {
+        const fetchedMotos = await getMotos();
+        setMotos(fetchedMotos);
+        setLoadingList(new Array(fetchedMotos.length).fill(false));
+      } catch (error) {
+        console.error('Erro ao buscar motos:', error);
+      }
+    };
+
+    fetchMotos();
+  }, []);
+
+  const handleDelete = async (id: string, index: number) => {  // Alterado para usar 'id'
+    //uma moto está sendo processada
     setLoadingList(prevLoadingList => {
       const newList = [...prevLoadingList];
       newList[index] = true;
@@ -18,8 +32,8 @@ export default function ListMotos() {
 
     setTimeout(async () => {
       try {
-        await deleteMoto(codigo);
-        //atualiza o estado 'motos', removendo  a moto com o indice index
+        await deleteMoto(id);  // Alterado para usar 'id'
+        //atualiza o estado 'motos', removendo a moto com o índice index
         setMotos(prevMotos => {
           const updatedMotos = [...prevMotos];
           updatedMotos.splice(index, 1); // Remove a moto da lista localmente
@@ -38,10 +52,6 @@ export default function ListMotos() {
     }, 1500);
   };
 
-  useEffect(() => {
-    setMotos(getMotos());
-  }, []);
-
   return (
     <section className='space-y-6 w-full'>
       {motos.map((moto, index) => (
@@ -55,24 +65,24 @@ export default function ListMotos() {
                 <h1 className='text-lg font-semibold mr-3 text-[#E7E3FC]'>{moto.modeloMoto}</h1>
                 <p
                   className={`px-3 p-0.5 rounded-full ${
-                    moto.status === 'Em estoque' ? 'bg-[#354546] text-[#56CA00]' : moto.status === 'Sem estoque' ? 'bg-[#55304C] text-[#FF4C51]' : 'bg-[#544146] text-[#FFB400]'
+                    moto.status === 'Em estoque' ? 'bg-[#354546] text-[#56CA00] font-semibold' : moto.status === 'Sem estoque' ? 'bg-[#55304C] text-[#FF4C51] font-semibold' : 'bg-[#544146] text-[#FFB400] font-semibold'
                   }`}
                 >
                   {moto.status}
                 </p>
               </div>
-              <p className='text-base font-medium'>Valor: R$ {moto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <p className='text-base font-medium'>Valor: {moto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
               <p className='text-base font-medium'>Cor: {moto.cor}</p>
             </div>
             <div className='flex items-center space-x-5 mr-4 md:mr-10'>
               <button
-                onClick={() => handleDelete(moto.codigo, index)}
+                onClick={() => handleDelete(moto.id, index)}
                 disabled={loadingList[index]} // Desativa o botão durante o loading da moto específica
               >
                 {loadingList[index] ? <img src='/assets/loading.svg' alt='loading' /> : <img src='/assets/apagar.svg' alt='apagar' />}
               </button>
 
-              <Link to={`/editar-dados/${moto.codigo}`}>
+              <Link to={`/editar-dados/${moto.id}`}>
                 <img src='/assets/editar.svg' alt='editar' />
               </Link>
             </div>

@@ -1,42 +1,56 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom'; // Importe o hook useNavigate e useParams
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import MainPagesHeader from '../../components/header/mainHeader';
 import AplayInput from '../../components/input/aplayInput';
-import { getMotoByCodigo, updateMoto } from '../../mock/motoService'; // Importe as funções necessárias do mock
+import { getMotoByCodigo, updateMoto, Moto } from '../../mock/motoService';
 
 export default function Editar() {
-  const { codigo } = useParams(); // Receba o parâmetro 'codigo' da URL
-  const navigate = useNavigate(); // Hook para navegação
+  const { id } = useParams();
+  const navigate = useNavigate();
 
+  const [codigo, setCodigo] = useState('');
   const [modeloMoto, setModeloMoto] = useState('');
   const [cor, setCor] = useState('');
   const [valor, setValor] = useState('');
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    const moto = getMotoByCodigo(Number(codigo));
-    if (moto) {
-      setModeloMoto(moto.modeloMoto);
-      setCor(moto.cor);
-      setValor(moto.valor.toString());
-      setStatus(moto.status);
-    }
-  }, [codigo]);
+    const fetchMoto = async () => {
+      if (id) {
+        const moto = await getMotoByCodigo(Number(id));
+        if (moto) {
+          setCodigo(moto.codigo.toString()); // Atualiza o código da moto
+          setModeloMoto(moto.modeloMoto);
+          setCor(moto.cor);
+          setValor(moto.valor.toString());
+          setStatus(moto.status);
+        } else {
+          console.error(`Moto com código ${id} não encontrada`);
+        }
+      }
+    };
 
-  const handleSubmit = (e: React.FormEvent) => {
+    fetchMoto();
+  }, [id]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const updatedMoto = {
+    const updatedMoto: Moto = {
+      id: id || '', // Garante que id não seja undefined
       codigo: Number(codigo),
       modeloMoto,
       cor,
       valor: parseFloat(valor),
-      status, // Ajuste conforme necessário
+      status,
     };
 
-    updateMoto(updatedMoto); // Atualiza a moto
-
-    navigate('/'); // Redireciona para a página inicial após a atualização
+    try {
+      await updateMoto(updatedMoto);
+      navigate('/');
+    } catch (error) {
+      console.error('Erro ao atualizar moto:', error);
+    }
   };
 
   return (
@@ -47,11 +61,11 @@ export default function Editar() {
       </section>
       <hr className='my-[30px] bg-[#CAC9CD]' />
 
-      <section className=' mt-10 flex flex-col justify-center items-center'>
+      <section className='mt-10 flex flex-col justify-center items-center'>
         <h1 className='text-center text-xl md:text-2xl font-semibold text-[#E7E3FC]'>Edite as informações que preferir! 📝</h1>
 
         <form onSubmit={handleSubmit} className='w-full md:w-auto mt-10 space-y-8'>
-          <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={value => {}} disabled readonly />
+          <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={setCodigo} disabled readonly />
           <AplayInput name='modelo_da_moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
           <AplayInput name='cor' label='Cor' type='text' value={cor} setValue={setCor} />
           <AplayInput name='valor' label='Valor' type='number' value={valor} setValue={setValor} />
@@ -63,18 +77,17 @@ export default function Editar() {
             <select
               id='status'
               value={status}
-              onChange={e => {
-                setStatus(e.target.value);
-              }}
+              onChange={(e) => setStatus(e.target.value)}
               required
               className='w-[350px] md:w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >
+              <option value=''></option>
               <option value='Em estoque'>Em estoque</option>
               <option value='Sem estoque'>Sem estoque</option>
               <option value='Em trânsito'>Em trânsito</option>
             </select>
           </div>
-          <button className=' w-[350px] md:w-[400px] h-[45px] flex items-center justify-center text-center px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md'>
+          <button className='w-[350px] md:w-[400px] h-[45px] flex items-center justify-center text-center px-1 text-sm font-semibold text-white bg-[#3BADFB] hover:bg-[#65b0e2] rounded-md'>
             <img src='../../assets/atualizar.svg' alt='' className='mx-1.5' />
             <p>ATUALIZAR</p>
           </button>

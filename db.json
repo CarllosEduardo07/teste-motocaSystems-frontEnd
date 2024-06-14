@@ -1,0 +1,20 @@
+{
+  "motos": [
+    {
+      "id": "1",
+      "codigo": 1,
+      "modeloMoto": "HONDA POP 110I",
+      "cor": "BRANCA",
+      "valor": 150000,
+      "status": "Em estoque"
+    },
+    {
+      "id": "2",
+      "codigo": 2,
+      "modeloMoto": "HONDA 500x",
+      "cor": "VERMELHA",
+      "valor": 50000,
+      "status": "Sem estoque"
+    }
+  ]
+}
