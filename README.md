@@ -27,6 +27,10 @@ Para Executar o **Servidor JSON Server**
 npm run serve
 ```
 
+**IMPORTANTE:** Execute o servidor para a aplicação funcionar
+
+<br>
+
 <h2 id="stacks">🚀 Tecnologias Utilizadas</h2>
 
 - **React**
