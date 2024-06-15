@@ -1,20 +1,28 @@
 {
   "motos": [
     {
-      "id": "1",
-      "codigo": 1,
-      "modeloMoto": "HONDA POP 110I",
-      "cor": "BRANCA",
-      "valor": 150000,
+      "id": "17184052873434",
+      "codigo": 300,
+      "modeloMoto": "123",
+      "cor": "123",
+      "valor": 123,
       "status": "Em estoque"
     },
     {
-      "id": "2",
-      "codigo": 2,
+      "id": "1718405287153",
+      "codigo": 100,
       "modeloMoto": "HONDA 500x",
       "cor": "VERMELHA",
       "valor": 50000,
       "status": "Sem estoque"
+    },
+    {
+      "id": "1718405606152",
+      "codigo": 500,
+      "modeloMoto": "TITAN",
+      "cor": "VERDE",
+      "valor": 500000,
+      "status": "Em trânsito"
     }
   ]
 }

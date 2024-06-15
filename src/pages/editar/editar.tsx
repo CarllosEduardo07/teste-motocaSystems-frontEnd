@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import MainPagesHeader from '../../components/header/mainHeader';
+import MainPagesHeader from '../../components/header/header';
 import AplayInput from '../../components/input/aplayInput';
-import { getMotoByCodigo, updateMoto, Moto } from '../../mock/motoService';
+import { Moto, getMotoByCodigo, updateMoto } from '../../mock/motoService';
 
 export default function Editar() {
   const { id } = useParams();
@@ -19,7 +19,7 @@ export default function Editar() {
       if (id) {
         const moto = await getMotoByCodigo(Number(id));
         if (moto) {
-          setCodigo(moto.codigo.toString()); // Atualiza o código da moto
+          setCodigo(moto.codigo.toString());
           setModeloMoto(moto.modeloMoto);
           setCor(moto.cor);
           setValor(moto.valor.toString());
@@ -37,7 +37,7 @@ export default function Editar() {
     e.preventDefault();
 
     const updatedMoto: Moto = {
-      id: id || '', // Garante que id não seja undefined
+      id: id || '',
       codigo: Number(codigo),
       modeloMoto,
       cor,
@@ -77,7 +77,7 @@ export default function Editar() {
             <select
               id='status'
               value={status}
-              onChange={(e) => setStatus(e.target.value)}
+              onChange={e => setStatus(e.target.value)}
               required
               className='w-[350px] md:w-[400px] h-[50px] pl-3 text-[#CAC9CD] border border-[#CAC9CD] text-base bg-background-pages outline-none rounded-md'
             >

@@ -13,22 +13,18 @@ export type Moto = {
   status: string;
 };
 
-// let motos: Moto[] = [];
-
-//atualizar
 export const getMotos = async (): Promise<Moto[]> => {
   const response = await api.get('/motos');
   return response.data;
 };
 
-//buscando motos para editar
+//buscando motos por id para editar
 export const getMotoByCodigo = async (id: number): Promise<Moto | undefined> => {
   const response = await api.get(`/motos/${id}`);
   return response.data;
 };
 
-//add
-export const addMoto = async (moto: Moto): Promise<void> => {
+export const createMoto = async (moto: Moto): Promise<void> => {
   await api.post('/motos', moto);
 };
 

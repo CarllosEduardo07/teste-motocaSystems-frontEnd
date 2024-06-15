@@ -12,6 +12,7 @@ export default function ListMotos() {
     const fetchMotos = async () => {
       try {
         const fetchedMotos = await getMotos();
+        //atualizando o estados de motos, com a lista recebida
         setMotos(fetchedMotos);
         setLoadingList(new Array(fetchedMotos.length).fill(false));
       } catch (error) {
@@ -22,21 +23,20 @@ export default function ListMotos() {
     fetchMotos();
   }, []);
 
-  const handleDelete = async (id: string, index: number) => {  // Alterado para usar 'id'
-    //uma moto está sendo processada
+  const handleDelete = async (id: string, index: number) => {
     setLoadingList(prevLoadingList => {
       const newList = [...prevLoadingList];
       newList[index] = true;
       return newList;
     });
 
+    //simular um atraso para o loading na excluão da moto
     setTimeout(async () => {
       try {
-        await deleteMoto(id);  // Alterado para usar 'id'
-        //atualiza o estado 'motos', removendo a moto com o índice index
+        await deleteMoto(id);
         setMotos(prevMotos => {
           const updatedMotos = [...prevMotos];
-          updatedMotos.splice(index, 1); // Remove a moto da lista localmente
+          updatedMotos.splice(index, 1);
           return updatedMotos;
         });
         setModal(true);
@@ -63,9 +63,14 @@ export default function ListMotos() {
             <div className='space-y-3'>
               <div className='flex items-center '>
                 <h1 className='text-lg font-semibold mr-3 text-[#E7E3FC]'>{moto.modeloMoto}</h1>
+                {/* verificando o status da moto e definindo uma cor */}
                 <p
                   className={`px-3 p-0.5 rounded-full ${
-                    moto.status === 'Em estoque' ? 'bg-[#354546] text-[#56CA00] font-semibold' : moto.status === 'Sem estoque' ? 'bg-[#55304C] text-[#FF4C51] font-semibold' : 'bg-[#544146] text-[#FFB400] font-semibold'
+                    moto.status === 'Em estoque'
+                      ? 'bg-[#354546] text-[#56CA00] font-semibold'
+                      : moto.status === 'Sem estoque'
+                      ? 'bg-[#55304C] text-[#FF4C51] font-semibold'
+                      : 'bg-[#544146] text-[#FFB400] font-semibold'
                   }`}
                 >
                   {moto.status}
