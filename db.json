@@ -2,7 +2,7 @@
   "motos": [
     {
       "id": "17184052873434",
-      "codigo": 300,
+      "codigo": 100,
       "modeloMoto": "HONDA POP 110I",
       "cor": "BRANCA",
       "valor": 15000,
@@ -10,7 +10,7 @@
     },
     {
       "id": "1718405287153",
-      "codigo": 100,
+      "codigo": 200,
       "modeloMoto": "HONDA 500x",
       "cor": "VERMELHA",
       "valor": 50000,
@@ -18,7 +18,7 @@
     },
     {
       "id": "1718405606152",
-      "codigo": 500,
+      "codigo": 300,
       "modeloMoto": "HONDA CB 300F TWISTER",
       "cor": "VERDE",
       "valor": 30000,

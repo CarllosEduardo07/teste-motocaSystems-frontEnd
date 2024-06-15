@@ -18,9 +18,12 @@ export default function AplayInput({ name, label, type, value, setValue, disable
       </label>
       {type === 'number' && name === 'valor' ? (
         <NumericFormat
-          thousandSeparator={true}
-          onChange={e => {
-            setValue(e.target.value.toUpperCase());
+          thousandSeparator={'.'} // Separador de milhar
+          decimalSeparator={','} // Separador decimal
+          decimalScale={2} // Quantidade de casas decimais
+          fixedDecimalScale // Fixa as casas decimais
+          onValueChange={({ floatValue }) => {
+            setValue(floatValue !== undefined ? String(floatValue) : '');
           }}
           value={value}
           readOnly={readonly}
