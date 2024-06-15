@@ -1,6 +1,7 @@
 <h1 align="center" style="font-weight: bold;"> 📝 Teste Motoca Systems - Desenvolvedor Front-End</h1>
 <p align="center">
- <a href="#description">Sobre</a> • 
+ <a href="#description">Descrição</a> • 
+  <a href="#Instructions">Instruções</a> •
   <a href="#stacks">Tecnologias Utilizadas</a> •
    <a href="#libs">Bibliotecas Usadas</a>
 </p>
@@ -13,7 +14,7 @@ O projeto conta com a funcionalidade de **CRUD**: **Criar**, **Ler**, **Atualiza
 <br>
 O layout foi desenvolvido de acordo com o figma fornecido **[Figma Layout](https://www.figma.com/design/YqufsjX9hR7Qzk9mM359fH/Teste-Motoca-Systems?node-id=0-1&t=cMNbEIgJ2wKOufTm-1)**
 
-<h2 id="about">📋 Instruções</h2>
+<h2 id="Instructions">📋 Instruções</h2>
 
 Para Executar o **Projeto**
 
