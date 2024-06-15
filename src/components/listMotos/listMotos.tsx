@@ -94,7 +94,7 @@ export default function ListMotos() {
         </div>
       ))}
 
-      {modal && <Modal mensagem='Item Excluído com Sucesso' onClose={() => setModal(false)} />}
+      {modal && <Modal status='excluir' mensagem='Item Excluído com Sucesso' onClose={() => setModal(false)} />}
     </section>
   );
 }

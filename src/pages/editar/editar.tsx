@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import MainPagesHeader from '../../components/header/header';
 import AplayInput from '../../components/input/aplayInput';
 import { Moto, getMotoByCodigo, updateMoto } from '../../mock/motoService';
+import Modal from '../../components/modal/modal';
 
 export default function Editar() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ export default function Editar() {
   const [cor, setCor] = useState('');
   const [valor, setValor] = useState('');
   const [status, setStatus] = useState('');
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const fetchMoto = async () => {
@@ -47,7 +49,10 @@ export default function Editar() {
 
     try {
       await updateMoto(updatedMoto);
-      navigate('/');
+      setModal(true);
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
     } catch (error) {
       console.error('Erro ao atualizar moto:', error);
     }
@@ -92,6 +97,8 @@ export default function Editar() {
             <p>ATUALIZAR</p>
           </button>
         </form>
+        
+        {modal && <Modal status='editar' mensagem='Item editado com Sucesso' onClose={() => setModal(false)} />}
       </section>
     </div>
   );

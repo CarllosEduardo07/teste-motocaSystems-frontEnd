@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainPagesHeader from '../../components/header/header';
 import AplayInput from '../../components/input/aplayInput';
+import Modal from '../../components/modal/modal';
 import { createMoto } from '../../mock/motoService';
 
 export default function RegistraMoto() {
@@ -10,6 +11,7 @@ export default function RegistraMoto() {
   const [cor, setCor] = useState('');
   const [valor, setValor] = useState('');
   const [status, setStatus] = useState('');
+  const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,7 +27,11 @@ export default function RegistraMoto() {
       status,
     };
     await createMoto(newMoto);
-    navigate('/');
+
+    setModal(true);
+    setTimeout(() => {
+      navigate('/');
+    }, 1500);
   };
 
   return (
@@ -66,6 +72,7 @@ export default function RegistraMoto() {
             <p>REGISTRAR</p>
           </button>
         </form>
+        {modal && <Modal status='sucesso' mensagem='Item criado com Sucesso' onClose={() => setModal(false)} />}
       </section>
     </div>
   );
