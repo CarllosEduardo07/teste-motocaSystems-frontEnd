@@ -1,13 +1,14 @@
-import MainPagesHeader from '../../components/header/mainHeader';
+import MainHeader from '../../components/header/mainHeader';
 import ListMotos from '../../components/listMotos/listMotos';
-import MainNavBarComponent from '../../components/mainNavBar/mainNavBar';
+import MainNavBar from '../../components/mainNavBar/mainNavBar';
 
 export default function Home() {
   return (
+    // renderizando o componente principal, ele foi fragmentado
     <div>
-      <MainPagesHeader />
+      <MainHeader />
 
-      <MainNavBarComponent />
+      <MainNavBar />
 
       <ListMotos />
     </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function MainPagesHeader() {
+export default function MainHeader() {
   return (
     <header className='w-full flex space-x-4 justify-end items-center'>
       <Link to='/'>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function MainNavBarComponent() {
+export default function MainNavBar() {
   return (
     <div>
       <section className='mt-8 flex flex-col md:flex md:flex-row md:justify-between'>
