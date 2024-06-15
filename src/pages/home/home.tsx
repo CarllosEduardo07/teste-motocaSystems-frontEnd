@@ -1,16 +1,12 @@
 import Header from '../../components/header/header';
-import ListMotos from '../../components/listMotos/listMotos';
-import NavBar from '../../components/navBar/navBar';
+import ListaMotos from '../../components/listMotos/listaMotos';
 
 export default function Home() {
   return (
     // renderizando o componente principal, ele foi fragmentado
     <div>
       <Header />
-
-      <NavBar />
-
-      <ListMotos />
+      <ListaMotos />
     </div>
   );
 }
