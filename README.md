@@ -47,3 +47,8 @@ npm run serve
 npm i json-server
 ```
 
+**Biblioteca React number format**: para Formatar o valor de entrada, para exibir em Reais
+
+```bash
+npm install react-number-format
+```
