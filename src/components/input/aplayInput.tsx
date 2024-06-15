@@ -1,7 +1,7 @@
 import { NumericFormat } from 'react-number-format';
 
 interface InputInterface {
-  name: string;
+  id: string;
   label: string;
   type: string;
   value: string;
@@ -10,14 +10,15 @@ interface InputInterface {
   readonly?: boolean;
 }
 
-export default function AplayInput({ name, label, type, value, setValue, disabled, readonly }: InputInterface) {
+export default function AplayInput({ id, label, type, value, setValue, disabled, readonly }: InputInterface) {
   return (
     <div className='flex flex-col relative'>
-      <label htmlFor={name} className='absolute ml-2 px-2 -top-3 text-sm font-medium bg-background-pages'>
+      <label htmlFor={id} className='absolute ml-2 px-2 -top-3 text-sm font-medium bg-background-pages'>
         {label}
       </label>
-      {type === 'number' && name === 'valor' ? (
+      {type === 'number' && id === 'valor' ? (
         <NumericFormat
+          id={id}
           thousandSeparator={'.'} // Separador de milhar
           decimalSeparator={','} // Separador decimal
           decimalScale={2} // Quantidade de casas decimais
@@ -34,6 +35,7 @@ export default function AplayInput({ name, label, type, value, setValue, disable
         />
       ) : (
         <input
+          id={id}
           type={type}
           onChange={e => {
             setValue(e.target.value.toUpperCase());
@@ -41,12 +43,12 @@ export default function AplayInput({ name, label, type, value, setValue, disable
           value={value}
           readOnly={readonly}
           required
-          className={`w-[350px] md:w-[400px] ${name === 'codigo' ? 'pl-6' : 'pl-3'} ${type === 'number' ? 'input_number' : ''}
+          className={`w-[350px] md:w-[400px] ${id === 'codigo' ? 'pl-6' : 'pl-3'} ${type === 'number' ? 'input_number' : ''}
       ${disabled ? 'border-[#d9d3f788]  cursor-not-allowed text-[#d9d3f788]' : ''}
      h-[50px] text-[#CAC9CD] border border-[#CAC9CD] text-base bg-transparent outline-none rounded-md`}
         />
       )}
-      {name === 'codigo' && <span className='absolute left-3 top-3 text-lg'>#</span>}
+      {id === 'codigo' && <span className='absolute left-3 top-3 text-lg'>#</span>}
     </div>
   );
 }

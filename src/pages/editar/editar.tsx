@@ -70,10 +70,10 @@ export default function Editar() {
         <h1 className='text-center text-xl md:text-2xl font-semibold text-[#E7E3FC]'>Edite as informações que preferir! 📝</h1>
 
         <form onSubmit={handleSubmit} className='w-full md:w-auto mt-10 space-y-8'>
-          <AplayInput name='codigo' label='Código' type='text' value={codigo} setValue={setCodigo} disabled readonly />
-          <AplayInput name='modelo_da_moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
-          <AplayInput name='cor' label='Cor' type='text' value={cor} setValue={setCor} />
-          <AplayInput name='valor' label='Valor' type='number' value={valor} setValue={setValor} />
+          <AplayInput id='codigo' label='Código' type='text' value={codigo} setValue={setCodigo} disabled readonly />
+          <AplayInput id='modelo_da_moto' label='Modelo da Moto' type='text' value={modeloMoto} setValue={setModeloMoto} />
+          <AplayInput id='cor' label='Cor' type='text' value={cor} setValue={setCor} />
+          <AplayInput id='valor' label='Valor' type='number' value={valor} setValue={setValor} />
 
           <div className='flex flex-col relative'>
             <label htmlFor='status' className='absolute ml-2 px-2 -top-3 text-sm font-medium bg-background-pages'>
