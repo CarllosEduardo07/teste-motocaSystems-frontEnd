@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    width: 7px; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #838080; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #444153; 
+  }
+}
+
 @layer utilities {
   /* tirar setar do input number */
   .input_number::-webkit-inner-spin-button {
