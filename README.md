@@ -1,12 +1,11 @@
 <h1 align="center" style="font-weight: bold;"> 📝 Teste Motoca Systems - Desenvolvedor Front-End</h1>
-
 <p align="center">
- <a href="#description">Descrição</a> • 
- <a href="#cloning">Clonagem</a> • 
-  <a href="#instructions_install">Instrução para Instalação</a> •
-  <a href="#instructions_use">Instruções de uso</a> •
-  <a href="#stacks">Tecnologias Utilizadas</a> •
-   <a href="#libs">Bibliotecas Usadas</a>
+ <a href="#descrição">Descrição</a> • 
+ <a href="#clonagem">Clonagem</a> • 
+  <a href="#instalação">Instrução para Instalação</a> •
+  <a href="#uso">Instruções de Uso</a> •
+  <a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a> •
+   <a href="#bibliotecas-usadas">Bibliotecas Usadas</a>
 </p>
 
 <div align="center">
@@ -26,12 +25,13 @@
 
 <h2 id="description">📌 Descrição</h2>
 
-Teste de contratação para a vaga de Desenvolvedor Front-End. Esse projeto foi feito em **React**.
+Teste de contratação para a vaga de Desenvolvedor Front-End. Esse projeto foi feito em **React** com **Vite**.
 <br>
+
 O projeto conta com a funcionalidade de **CRUD**: **Criar**, **Ler**, **Atualizar** e **Deletar**, utilizando **JSON Server**.
 <br>
-O layout foi desenvolvido de acordo com o figma fornecido **[Figma Layout](https://www.figma.com/design/YqufsjX9hR7Qzk9mM359fH/Teste-Motoca-Systems?node-id=0-1&t=cMNbEIgJ2wKOufTm-1)**.
 
+O layout foi desenvolvido de acordo com o figma fornecido **[Figma Layout](https://www.figma.com/design/YqufsjX9hR7Qzk9mM359fH/Teste-Motoca-Systems?node-id=0-1&t=cMNbEIgJ2wKOufTm-1)**.
 
 <h2 id="cloning">Clonagem</h2>
 
@@ -81,6 +81,7 @@ npm run serve
 <h2 id="stacks">🚀 Tecnologias Utilizadas</h2>
 
 - **React**
+- **Vite**
 - **TypeScript**
 - **Tailwind CSS**
 
@@ -92,7 +93,7 @@ npm run serve
 npm i json-server
 ```
 
-**Biblioteca React number format**: para Formatar o valor de entrada, para exibir em Reais
+**Biblioteca React number format**: para formatar o valor de entrada, exibindo em Reais
 
 ```bash
 npm install react-number-format
