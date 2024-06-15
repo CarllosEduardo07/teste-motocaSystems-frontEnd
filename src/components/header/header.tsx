@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Header() {
   return (
     <header className='w-full flex space-x-4 justify-end items-center'>
-      <Link to='/'>
+      <Link to='/' title='Página Inicial'>
         <img src='/assets/home.svg' alt='home' className='cursor-pointer' />
       </Link>
       <div className='relative cursor-pointer'>

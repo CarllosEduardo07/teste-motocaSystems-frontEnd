@@ -29,6 +29,7 @@ export default function AplayInput({ id, label, type, value, setValue, disabled,
           value={value}
           readOnly={readonly}
           required
+          autoComplete='off'
           className={`w-[350px] md:w-[400px] pl-3 h-[50px] text-[#CAC9CD] border border-[#CAC9CD] text-base bg-transparent outline-none rounded-md ${
             disabled ? 'border-[#d9d3f788] cursor-not-allowed text-[#d9d3f788]' : ''
           }`}
@@ -43,6 +44,7 @@ export default function AplayInput({ id, label, type, value, setValue, disabled,
           value={value}
           readOnly={readonly}
           required
+          autoComplete='off'
           className={`w-[350px] md:w-[400px] ${id === 'codigo' ? 'pl-6' : 'pl-3'} ${type === 'number' ? 'input_number' : ''}
       ${disabled ? 'border-[#d9d3f788]  cursor-not-allowed text-[#d9d3f788]' : ''}
      h-[50px] text-[#CAC9CD] border border-[#CAC9CD] text-base bg-transparent outline-none rounded-md`}
