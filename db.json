@@ -3,9 +3,9 @@
     {
       "id": "17184052873434",
       "codigo": 300,
-      "modeloMoto": "123",
-      "cor": "123",
-      "valor": 123,
+      "modeloMoto": "HONDA POP 110I",
+      "cor": "BRANCA",
+      "valor": 15000,
       "status": "Em estoque"
     },
     {
@@ -19,9 +19,9 @@
     {
       "id": "1718405606152",
       "codigo": 500,
-      "modeloMoto": "TITAN",
+      "modeloMoto": "HONDA CB 300F TWISTER",
       "cor": "VERDE",
-      "valor": 500000,
+      "valor": 30000,
       "status": "Em trânsito"
     }
   ]

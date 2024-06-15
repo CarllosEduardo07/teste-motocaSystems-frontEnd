@@ -63,7 +63,6 @@ export default function ListMotos() {
             <div className='space-y-3'>
               <div className='flex items-center '>
                 <h1 className='text-lg font-semibold mr-3 text-[#E7E3FC]'>{moto.modeloMoto}</h1>
-                {/* verificando o status da moto e definindo uma cor */}
                 <p
                   className={`px-3 p-0.5 rounded-full ${
                     moto.status === 'Em estoque'
