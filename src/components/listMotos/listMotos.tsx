@@ -53,18 +53,18 @@ export default function ListMotos() {
   };
 
   return (
-    <section className='space-y-6 w-full'>
+    <section className='space-y-6 w-full pb-5'>
       {motos.map((moto, index) => (
         <div key={moto.codigo} className='h-[138px] bg-[#312D4B] flex items-center rounded-xl'>
-          <div className='w-[110px] md:w-[240px] h-full flex items-center justify-center'>
-            <p className='text-lg text-[#8C57FF] font-medium leading-6'>#{moto.codigo}</p>
+          <div className='w-[70px] md:w-[240px] h-full flex items-center justify-center'>
+            <p className='text-sm md:text-lg text-[#8C57FF] font-medium leading-6'>#{moto.codigo}</p>
           </div>
           <div className='flex w-full justify-between'>
             <div className='space-y-3'>
               <div className='flex items-center '>
-                <h1 className='text-lg font-semibold mr-3 text-[#E7E3FC]'>{moto.modeloMoto}</h1>
+                <h1 className='text-xs md:text-lg font-semibold mr-2 text-[#E7E3FC]'>{moto.modeloMoto}</h1>
                 <p
-                  className={`px-3 p-0.5 rounded-full ${
+                  className={` px-2 md:px-3 p-0.5 text-xs md:text-base text-center rounded-full ${
                     moto.status === 'Em estoque'
                       ? 'bg-[#354546] text-[#56CA00] font-semibold'
                       : moto.status === 'Sem estoque'
@@ -75,10 +75,10 @@ export default function ListMotos() {
                   {moto.status}
                 </p>
               </div>
-              <p className='text-base font-medium'>Valor: {moto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-              <p className='text-base font-medium'>Cor: {moto.cor}</p>
+              <p className='text-xs md:text-base font-medium'>Valor: {moto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <p className='text-xs md:text-base font-medium'>Cor: {moto.cor}</p>
             </div>
-            <div className='flex items-center space-x-5 mr-4 md:mr-10'>
+            <div className=' flex flex-col justify-center items-center space-y-5 md:space-y-0 md:flex-row md:flex md:space-x-5 mx-4 md:mr-10'>
               <button
                 onClick={() => handleDelete(moto.id, index)}
                 disabled={loadingList[index]} // Desativa o botão durante o loading da moto específica

@@ -13,7 +13,7 @@ interface InputInterface {
 export default function AplayInput({ name, label, type, value, setValue, disabled, readonly }: InputInterface) {
   return (
     <div className='flex flex-col relative'>
-      <label htmlFor={name} className='absolute ml-2 px-2 -top-3 text-sm bg-background-pages'>
+      <label htmlFor={name} className='absolute ml-2 px-2 -top-3 text-sm font-medium bg-background-pages'>
         {label}
       </label>
       {type === 'number' && name === 'valor' ? (

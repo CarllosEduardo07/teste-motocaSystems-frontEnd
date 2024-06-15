@@ -71,7 +71,7 @@ export default function Editar() {
           <AplayInput name='valor' label='Valor' type='number' value={valor} setValue={setValor} />
 
           <div className='flex flex-col relative'>
-            <label htmlFor='status' className='absolute ml-2 px-2 -top-3 text-sm bg-background-pages'>
+            <label htmlFor='status' className='absolute ml-2 px-2 -top-3 text-sm font-medium bg-background-pages'>
               Status
             </label>
             <select
