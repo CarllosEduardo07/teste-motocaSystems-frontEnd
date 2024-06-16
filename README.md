@@ -18,10 +18,7 @@
 </div>
 
 
-![Teste-Motoca](https://github.com/CarllosEduardo07/teste-motocaSystems-frontEnd/assets/80606019/dc470812-307d-4d08-9bf0-a93418206b56)
-
-
-
+![Teste-Motoca](https://github.com/CarllosEduardo07/teste-motocaSystems-frontEnd/assets/80606019/42d16282-189f-44d1-9be3-0500d8c2aaf2)
 
 
 <h2 id="description">📌 Descrição</h2>
@@ -29,7 +26,7 @@
 Teste de contratação para a vaga de Desenvolvedor Front-End. Esse projeto foi feito em **React** com **Vite**.
 <br>
 
-O projeto conta com a funcionalidade de **CRUD**: **Criar**, **Ler**, **Atualizar** e **Deletar**, utilizando **JSON Server**.
+O projeto conta com a funcionalidade de **CRUD**: **Criar**, **Ler**, **Atualizar** e **Deletar**, utilizando **JSON Server** e a funcionalidade de **Busca pela Barra de Pesquisa.**
 <br>
 
 O layout foi desenvolvido de acordo com o figma fornecido **[Figma Layout](https://www.figma.com/design/YqufsjX9hR7Qzk9mM359fH/Teste-Motoca-Systems?node-id=0-1&t=cMNbEIgJ2wKOufTm-1)**.
